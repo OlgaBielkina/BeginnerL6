@@ -1,0 +1,145 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana,sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 24px;
+    background-color: #eee;
+}
+
+.container {
+    padding: 24px;
+}
+
+.image {
+    width: 100%;
+}
+
+.logo {
+    width: 100px;
+}
+
+.cartIcon {
+    display: inline-block;
+    background-image: url('./assets/cart.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+}
+
+.cartAmount {
+    font-size: 14px;
+    margin-left: -16px;
+    background-color: #D9EEE1;
+    border-radius: 50%;
+    padding: 4px;
+}
+
+.cartAmount:empty {
+    display: none;
+}
+
+.addToCartBtn {
+    margin: 16px 0;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: #D9EEE1;
+    min-width: 200px;
+}
+
+.color {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.color.active {
+    border: 1px solid black;
+}
+
+.greenColor {
+    background-color: green;
+}
+
+.blueColor {
+    background-color: blue;
+}
+.addToCartBtn:hover {
+    cursor: pointer;
+    background-color: #C9EEE1;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold; 
+}
+
+.p {
+    font-size: 18px;
+}
+
+.descriptionContainer .addToCartBtn {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .container {
+        display: flex;
+    }
+
+    .descriptionContainer {
+        display: flex;
+        flex-direction: column;
+        margin-left: 16px
+    }
+
+    .descriptionContainer .addToCartBtn {
+        display: inline-block;
+        width: auto;
+        align-self: flex-start;
+    }
+
+    .addToCartBtn {
+        display: none;
+    }
+    
+    .image {
+        width: 350px
+    }
+}
+
+@media  screen and (min-width: 820px) {
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .description {
+        display: flex;
+    }
+
+    .p {
+        flex: 1;
+        margin-right: 16px
+    }
+
+    .p:last-child {
+        margin-right: 0
+    }
+
+    .descriptionContainer .addToCartBtn {
+        display: inline-block;
+        width: auto;
+        align-self: flex-end;
+    }
+}
