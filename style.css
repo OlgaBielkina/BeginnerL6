@@ -88,6 +88,36 @@ nav {
     font-size: 18px;
 }
 
+.inputLabel {
+    display: flex;
+}
+.commentInput {
+    border-radius: 4px;
+    line-height: 1.5;
+    flex: 1;
+    margin-left: 12px;
+}
+
+.error {
+    font-size: 12px;
+    color: red
+}
+
+.inputError {
+    border-color: red;
+}
+
+.comments {
+    margin: 16px 0;
+    padding: 8px;
+}
+
+.comment {
+    background-color: #eee;
+    padding: 8px;
+    border-radius: 4px;
+}
+
 .descriptionContainer .addToCartBtn {
     display: none;
 }
@@ -95,6 +125,7 @@ nav {
 @media only screen and (min-width: 768px) {
     .container {
         display: flex;
+        align-items: flex-start;
     }
 
     .descriptionContainer {
