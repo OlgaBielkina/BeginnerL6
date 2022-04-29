@@ -1,3 +1,6 @@
+const GREEN_SOCK_TITLE = 'Embroidery Dog Sock'
+const BLUE_SOCK_TITLE = 'Embroidery Ice Cream Sock'
+
 const buttonElements = document.querySelectorAll('.addToCartBtn');
 
 for( let i = 0; i < buttonElements.length; i++) {
@@ -12,6 +15,18 @@ for( let i = 0; i < buttonElements.length; i++) {
     });
 }
 
+function colorChange(color) {
+    const image = document.querySelector('.image');
+    const title = document.querySelector('.title');
+
+    if(image) {
+        image.setAttribute('src', './assets/' + color + '_socks.jpeg')
+    }
+
+    if(title) {
+        title.innerHTML = color === 'green' ? GREEN_SOCK_TITLE : BLUE_SOCK_TITLE
+    }
+}
 
 const colorElements = document.querySelectorAll('.color');
 
@@ -19,18 +34,21 @@ colorElements.forEach((element, index) => {
     element.addEventListener('click', (event) => {
         const colorEl = event.target;
         const color = colorEl.dataset.color;
-        const image = document.querySelector('.image');
         colorElements.forEach((el) => {
             el.classList.remove('active')
         })
 
         colorEl.classList.add('active')
 
-        if(image) {
-            image.setAttribute('src', './assets/' + color + '_socks.jpeg')
-        }
+        colorChange(color)
     })
 });
+
+const colorSelectElement = document.querySelector('.colorsSelect');
+
+colorSelectElement.addEventListener('change', (event) => {
+    colorChange(event.target.value)
+})
 
 const MAX_LENGHT_ERROR = 'MAX_LENGHT_ERROR'
 const MIN_LENGHT_ERROR = 'MIN_LENGHT_ERROR'
@@ -53,7 +71,8 @@ const validateInput = (str='') => {
 const commentElement = document.querySelector('.commentInput');
 
 if(commentElement) {
-    commentElement.addEventListener('change', (event) => {
+    commentElement.addEventListener('input', (event) => {
+        console.log(event.target)
         const text = event.target.value;
 
         const error = validateInput(text);
